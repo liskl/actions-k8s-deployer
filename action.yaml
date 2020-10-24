@@ -1,0 +1,6 @@
+name: kubernetes deployer
+description: "This action provides kubectl for Github Actions."
+author: 'liskl'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'

@@ -1,0 +1,16 @@
+name: Integration Test
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Publish to Registry
+      uses: liskl/actions-docker-publish@main
+      with:
+        name: liskl/actions-k8s-deployer
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+        snapshot: true
+        tag_names: true
+        registry: registry.infra.liskl.com

@@ -1,0 +1,14 @@
+name: Integration Test Github
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Publish to Registry
+      uses: liskl/actions-docker-publish@main
+      with:
+        name: docker.pkg.github.com/liskl/actions-k8s-deployer/actions-k8s-deployer
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+        registry: docker.pkg.github.com
